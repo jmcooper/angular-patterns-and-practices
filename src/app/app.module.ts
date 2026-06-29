@@ -1,4 +1,4 @@
-import { importProvidersFrom, NgModule } from '@angular/core';
+import { importProvidersFrom, NgModule, provideZonelessChangeDetection } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
@@ -28,6 +28,7 @@ import { Checkout } from './checkout/checkout';
     RouterModule.forRoot(routes),
   ],
   providers: [
+    provideZonelessChangeDetection(),
     provideHttpClient(),
     importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryProductsApi, { delay: 0 }))
   ],
